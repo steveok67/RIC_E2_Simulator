@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: e2sim
+  labels:
+    app: e2sim
+  namespace: ricsim
+spec:
+  containers:
+    - name: e2sim
+      image: quay.io/skonish/ran_sim 
+      command: ["/bin/sh"]
+      args: ["-c", "export E2SIM_DIR=/playpen/previous;yum install -y net-tools iputils;while true; do sleep 30; done;"]
+
